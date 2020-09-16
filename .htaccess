@@ -1,6 +1,6 @@
 # Site settings
 # Created by: Alexandra French on: 9/9/2020
-# Last modified by: Alexandra French on 9/9/2020
+# Last modified by: Alexandra French on 9/15/2020
 
 <limit GET>
 allow from all
@@ -9,11 +9,6 @@ allow from all
 RewriteEngine On
 RewriteBase /
 
-# Redirect rules for php
-RedirectMatch 301 ^/home\.php$ /index.php
-#RedirectMatch 301 ^/news\.php$ /index.php
-#RedirectMatch 301 ^/video\.php$ /home.php
-
 # Remove php from all php file links
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
@@ -21,7 +16,7 @@ RewriteRule ^(.*)$ $1.php [NC,L]
 
 # Error pages
 ErrorDocument 404 /404.php
-#Not Found
+# Not Found
 
 # Disable server signature
 ServerSignature Off
