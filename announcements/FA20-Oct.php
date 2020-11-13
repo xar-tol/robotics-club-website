@@ -1,11 +1,7 @@
 <?php
 
-// all variables
-$pageCreator = "Alexandra French";
-$pageCreationDate = "November 4, 2020";
-$title = "Robotics Club October Announcements";
-$currentWebmaster = "Alexandra French";
-$updateDate = "November 4, 2020";
+// header functions and include
+include_once("../assets/templates/header.php");
 $pageDescription = "In October, we had a Halloween social and many CAD and ROS workshops.";
 $keywords = "UCF robotics club, University of Central Florida, UCF, robotics club, robotics club,
                                UCF robotics, UCF club, RSO, AUVSI, autonomous, SUAS, AHRS, IMU, i2C, ROS, ROS melodic,
@@ -15,15 +11,17 @@ $keywords = "UCF robotics club, University of Central Florida, UCF, robotics clu
                                machine learning, computer vision, sensors, lidar, demobot, citrobot, Robotics Club of
                                Central Florida, central florida, robotics club, announcements, events, october, october events,
                                halloween, october CAD workshop, get ROS, ROS, ROS workshop, pinewoood derby";
-$url = "https://robotics.ucf.edu/announcements/FA20-Oct";
-$markupImage = "https://robotics.ucf.edu/announcements/assets/imgs/FA20-intro.jpg";
-
-// header functions and include
-include_once("../assets/templates/header.php");
+$headerGen = new Header("Alexandra French", "October 2, 2020", "Alexandra French", "November 12, 2020");
+$headerGen->generateComment();
+$headerGen->generateCommon("Robotics Club October Announcements", $pageDescription, $keywords, "https://robotics.ucf.edu/announcements/FA20-Oct");
+$headerGen->generateCSS();
+$headerGen->genWebsiteSEO("https://robotics.ucf.edu/announcements/FA20-Oct", "Robotics Club October Announcements", $pageDescription, "https://robotics.ucf.edu/announcements/assets/imgs/FA20-intro.jpg");
+$headerGen->endHeader();
 
 
 // navbar
 include_once("../assets/templates/navbar.php");
+$navbarGen = new Navbar(False);
 
 ?>
 
@@ -40,7 +38,7 @@ include_once("../assets/templates/navbar.php");
         <h2 class="text-center">Watching Our Progress? Getting Involved?</h2>
         <div class="row text-center">
           <div class="col-lg-12">
-            <p> Here you can find all of our September 2020 events and news! We focused on workshops in September.
+            <p> Here you can find all of our October 2020 events and news! We focused on socials and workshops in October.
             </p>
           </div>
         </div>
@@ -80,5 +78,9 @@ $pagination->generate(array("index", "FA20-Oct", "FA20-Sep", "FA20-Aug"), FALSE)
 
 // footer functions and include
 include_once("../assets/templates/footer.php");
+$footerGen = new Footer();
+$footerGen->generateFooter();
+$footerGen->generateJs();
+$footerGen->endFile();
 
 ?>
